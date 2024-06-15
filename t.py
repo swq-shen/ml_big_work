@@ -8,7 +8,6 @@ from dl import DataLoader
 from tradingcalendar import Calendar
 import torch
 
-
 if __name__ == '__main__':
     epochs = 10
     calendar = Calendar()
@@ -16,7 +15,12 @@ if __name__ == '__main__':
     dloader = DataLoader("../archive")
     dates = calendar.range(20230601, 20231130)
     rawData = dloader.loadDates(dates)
+
+    #ft.plot_correlation_heatmap(rawData)
+    print(rawData.columns)
     X, y = ft.genFeatures(rawData)
+
+    #ft.plot_correlation_heatmap(X)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     mo = Model(device)
     mo.fit(X, y, epochs)

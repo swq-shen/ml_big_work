@@ -2,6 +2,7 @@ import os  # 导入os模块，用于操作文件和目录路径
 import pandas as pd  # 导入pandas模块，用于数据处理和分析
 from tradingcalendar import Calendar  # 导入Calendar类，用于判断是否为交易日
 
+
 class DataLoader(object):  # 定义MeowDataLoader类
     def __init__(self, h5dir):  # 初始化方法，接收h5文件存储目录作为参数
         self.h5dir = h5dir  # 存储h5文件目录的属性
